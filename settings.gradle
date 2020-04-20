@@ -1,0 +1,2 @@
+rootProject.name='feat-ViewBinding'
+include ':app'
