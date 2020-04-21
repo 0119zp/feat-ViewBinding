@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.zpan.viewbinding.databinding.FragmentOtherBinding;
+import com.zpan.viewbinding.databinding.ItemOtherListBinding;
 
 /**
  * @author zpan
@@ -28,6 +29,13 @@ public class OtherFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         otherBinding.tvTitle.setText("other-fragment 的 title");
+
+        otherBinding.llList.removeAllViews();
+        for (int i = 0; i < 10; i++) {
+            ItemOtherListBinding listBinding = ItemOtherListBinding.inflate(LayoutInflater.from(getActivity()));
+            listBinding.tvText.setText("addView ViewBinding");
+            otherBinding.llList.addView(listBinding.getRoot());
+        }
     }
 
     @Override

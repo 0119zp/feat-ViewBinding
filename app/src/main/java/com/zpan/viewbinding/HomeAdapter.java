@@ -32,7 +32,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        holder.textView.setText(stringList.get(position));
+        holder.textView.setText("adapter ViewBinding");
     }
 
     @Override
