@@ -24,4 +24,6 @@ android {
 tools:viewBindingIgnore="true"
 ~~~
 
+### 视图绑定
+[视图绑定](https://developer.android.google.cn/topic/libraries/view-binding)
 
