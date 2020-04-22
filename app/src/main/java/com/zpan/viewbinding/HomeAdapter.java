@@ -4,9 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+import com.zpan.viewbinding.databinding.AdapterHomeListBinding;
 import java.util.List;
 
 /**
@@ -26,13 +26,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
     @NonNull
     @Override
     public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View homeView = LayoutInflater.from(mContext).inflate(R.layout.adapter_home_list, parent, false);
-        return new HomeViewHolder(homeView);
+        AdapterHomeListBinding listBinding = AdapterHomeListBinding.inflate(LayoutInflater.from(mContext));
+        HomeViewHolder viewHolder = new HomeViewHolder(listBinding.getRoot());
+        viewHolder.setViewBinding(listBinding);
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        holder.textView.setText("adapter ViewBinding");
+        holder.getViewBinding().tvItem.setText("adapter ViewBinding");
     }
 
     @Override
@@ -42,11 +44,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     class HomeViewHolder extends RecyclerView.ViewHolder {
 
-        AppCompatTextView textView;
+        AdapterHomeListBinding homeListBinding;
 
         public HomeViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tv_item);
+        }
+
+        public AdapterHomeListBinding getViewBinding() {
+            return homeListBinding;
+        }
+
+        public void setViewBinding(AdapterHomeListBinding listBinding) {
+            this.homeListBinding = listBinding;
         }
     }
 }
