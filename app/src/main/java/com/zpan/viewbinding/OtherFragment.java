@@ -1,5 +1,6 @@
 package com.zpan.viewbinding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.zpan.viewbinding.base.TestActivity;
 import com.zpan.viewbinding.databinding.FragmentOtherBinding;
 import com.zpan.viewbinding.databinding.ItemOtherListBinding;
 
@@ -34,6 +36,9 @@ public class OtherFragment extends Fragment {
         for (int i = 0; i < 10; i++) {
             ItemOtherListBinding listBinding = ItemOtherListBinding.inflate(LayoutInflater.from(getActivity()));
             listBinding.tvText.setText("addView ViewBinding");
+            listBinding.tvText.setOnClickListener(v -> {
+                startActivity(new Intent(getActivity(), TestActivity.class));
+            });
             otherBinding.llList.addView(listBinding.getRoot());
         }
     }
