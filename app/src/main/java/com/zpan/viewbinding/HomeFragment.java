@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import com.zpan.viewbinding.base.TestBaseAdapter;
 import com.zpan.viewbinding.databinding.FragmentHomeBinding;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,10 @@ public class HomeFragment extends Fragment {
         homeBinding.tvTitle.setText("home-fragment 的 title");
 
         homeBinding.rvList.setLayoutManager(new LinearLayoutManager(getActivity()));
-        homeBinding.rvList.setAdapter(new HomeAdapter(getActivity(), getList()));
+        //homeBinding.rvList.setAdapter(new HomeAdapter(getActivity(), getList()));
+        TestBaseAdapter testBaseAdapter = new TestBaseAdapter(getActivity());
+        homeBinding.rvList.setAdapter(testBaseAdapter);
+        testBaseAdapter.setData(getList());
     }
 
     private List<String> getList() {
