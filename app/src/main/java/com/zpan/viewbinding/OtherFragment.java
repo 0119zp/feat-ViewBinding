@@ -22,6 +22,7 @@ public class OtherFragment extends BaseFragment<FragmentOtherBinding> {
     @Override
     protected void exInit() {
         viewBinding.tvTitle.setText("other-fragment 的 title");
+        viewBinding.include.tvInclude.setText("include 模块");
 
         viewBinding.llList.removeAllViews();
         for (int i = 0; i < 10; i++) {

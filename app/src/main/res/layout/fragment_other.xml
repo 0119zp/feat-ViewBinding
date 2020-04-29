@@ -16,6 +16,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/include_test"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"/>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/ll_list"
         android:layout_width="match_parent"
