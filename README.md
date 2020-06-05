@@ -12,6 +12,22 @@ android {
     }
 }
 ~~~
+- studio版本4.0+
+- gradle tools
+~~~
+dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.0'
+    }
+~~~
+- build.gradle 配置
+~~~
+android{
+       ...
+       buildFeatures {
+        viewBinding = true
+    }
+}
+~~~
 - JDK 在1.8
 ![JDK](https://github.com/0119zp/feat-ViewBinding/blob/master/JDK%E8%AE%BE%E7%BD%AE.png)
 
